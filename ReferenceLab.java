@@ -11,7 +11,8 @@ public class ReferenceLab {
 
         // PREDICT BEFORE RUNNING:
         // What will copy.getPosition() return after nemo.setPosition(25)?
-
+        //copy.getPosition() will return 25, the same value as the position of the
+        // nemo object. This is because it is an alias and refers to the same place in memory. 
         nemo.setPosition(25);
 
         System.out.println("Experiment A - Aliasing");
@@ -28,6 +29,9 @@ public class ReferenceLab {
 
         // PREDICT BEFORE RUNNING:
         // Will fish1 == fish2 be true or false?
+        //fish1== fish2 will return a false value. This is because both objects were instantiated
+        //as new objects, meaning they point to different memory locations no matter if their attributes
+        //are equivalent. These memory locations will not be equal and therefore the statement will return false.
 
         System.out.println();
         System.out.println("Experiment B - Separate Objects");
@@ -45,7 +49,9 @@ public class ReferenceLab {
 
         // PREDICT BEFORE RUNNING:
         // What happens to tank[0] if selected is modified?
-
+        //If selected is modified, the value of tank[0] will also be modified. Because the selected variable was
+        //created as a reference to the tank object, they both point to the same tank[0] object. This means if one of them is changed, 
+        //the other will follow in suit as they reference the same value in memory. 
         selected.setPosition(35);
 
         System.out.println();
