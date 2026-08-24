@@ -5,13 +5,18 @@ public class Crab extends SeaCreature {
     public Crab(String name, int position, int speed, int direction, String symbol) {
         super(name, position, speed, direction);
         this.symbol = symbol;
+        hunger = 10; 
     }
 
     @Override
     public void move(int tankWidth) {
-        position += speed * direction;
-        keepInsideTank(tankWidth);
-        turnAround();
+        if(hunger>0)
+        {
+            position += speed * direction;
+            keepInsideTank(tankWidth);
+            turnAround();
+            hunger--;
+        }
     }
     public void turnAround(){
         if(Math.random()<.3 )

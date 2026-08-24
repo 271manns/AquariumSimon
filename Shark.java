@@ -5,12 +5,18 @@ public class Shark extends SeaCreature {
     public Shark(String name, int position, int speed, int direction, String symbol) {
         super(name, position, speed, direction);
         this.symbol = symbol;
+        hunger = 10; 
     }
 
     @Override
     public void move(int tankWidth) {
-        position += speed * direction * 2;
-        keepInsideTank(tankWidth);
+        if(hunger>0)
+        {
+            position += speed * direction * 2;
+            keepInsideTank(tankWidth);
+            hunger--;
+        }
+
     }
 
     @Override
@@ -20,5 +26,10 @@ public class Shark extends SeaCreature {
 
     private String reverseSymbol(String text) {
         return new StringBuilder(text).reverse().toString();
+    }
+    public void feed()
+    {
+        super.feed();
+        super.feed();
     }
 }

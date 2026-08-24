@@ -4,12 +4,14 @@ public abstract class SeaCreature {
     protected int position;
     protected int speed;
     protected int direction;
+    protected int hunger;
 
     public SeaCreature(String name, int position, int speed, int direction) {
         this.name = name;
         this.position = position;
         this.speed = speed;
         this.direction = direction;
+        hunger = 10; 
     }
 
     // Each subclass decides how it moves.
@@ -44,6 +46,10 @@ public abstract class SeaCreature {
 
     public void turnAround() {
         direction *= -1;
+    }
+    public void feed()
+    {
+        hunger+=5;
     }
 
     protected void keepInsideTank(int tankWidth) {

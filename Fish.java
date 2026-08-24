@@ -5,12 +5,18 @@ public class Fish extends SeaCreature {
     public Fish(String name, int position, int speed, int direction, String symbol) {
         super(name, position, speed, direction);
         this.symbol = symbol;
+        hunger = 10; 
     }
 
     @Override
     public void move(int tankWidth) {
-        position += speed * direction;
-        keepInsideTank(tankWidth);
+        if(hunger>0)
+        {
+            position += speed * direction;
+            keepInsideTank(tankWidth);
+            hunger--;
+        }
+        
     }
 
     @Override

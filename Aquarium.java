@@ -95,7 +95,7 @@ public class Aquarium {
 
         return "|" + new String(lane) + "| "
                 + creature.getName() + " ("
-                + creature.getClass().getSimpleName() + ")";
+                + creature.getClass().getSimpleName() + ") " +"Hunger: " + creature.hunger;
     }
 
     private String center(String text, int width) {
@@ -108,5 +108,15 @@ public class Aquarium {
         int rightPadding = totalPadding - leftPadding;
 
         return " ".repeat(leftPadding) + text + " ".repeat(rightPadding);
+    }
+    public void feed()
+    {
+        for(SeaCreature creature : creatures)
+        {
+            if(creature!=null)
+            {
+                creature.feed();
+            }
+        }
     }
 }

@@ -55,6 +55,10 @@ public class AquariumApp {
                     running = false;
                     System.out.println("Aquarium closed. Goodbye!");
                     break;
+                case "5":
+                    aquarium.feed();
+                    break;
+
 
                 default:
                     System.out.println("Please choose 1, 2, 3, or 4.");
@@ -70,5 +74,6 @@ public class AquariumApp {
         System.out.println("2. Advance One Turn");
         System.out.println("3. View Creature Details");
         System.out.println("4. Quit");
+        System.out.println("5. Feed Fish");
     }
 }
