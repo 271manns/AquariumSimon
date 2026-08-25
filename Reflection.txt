@@ -1,0 +1,17 @@
+1. One example of inheritance was the SeaCreature class. Since each SeaCreature had similar instance variables and functionality's,
+the abstract class SeaCreature was created. No object of a SeaCreature type may be created, but the functionality's such as the constructor, move method,
+and getSymbol method were created so they could be inherited by subclasses such as Fish, Crab, or Shark. These methods are inherited and overided uniquely such as
+moving the Shark twice as fast in move() or randomly switching directions for Crab.
+2. One example of method overiding is the move() method. When created in the Fish class, it moves the Fish by it's speed in the correct direction. However, for the shark class, 
+we wanted Shark to move twice as fast. This can be seen in the Shark class's overriden move() method which multiplies the objects speed by two, making the Shark objects move twice as fast
+as the Fish object.
+3. The SeaCeature[] array may contain sublass objects like Fish, Shark, and Crab because of the idea of Polymorphism. This states that all of the
+subclasses are elements of the superclass who inherit all of a SeaCreature's functionality. This allows each subclass to be placed into an array of SeaCreatures because the extends
+keyword implies that each subclass object is an object of the superclass and can morph into being a SeaCreature in the array.
+4. In the refernece lab, nemo and copy both refer to the same object. This is because the copy object was not instantiated with the "new" keyword and instead was created as an alias to
+the nemo object. This means they refer to the same exact place in memory, where as another instantiation with the same instance variables does not mean they are the same object. 
+5. In my opinion, the most meaningful git commit for me this project was the addition of the Hunger functionality throughout my code. I believe this because it included a lot of the review topics of this project while
+also creating a fun functionality. I had to create a method in the abstract SeaCreature class, override it for each Object including calling the superclass twice for the Shark object to feed him double. I also had to add the option for
+feeding on the Main menu in the main terminal and review how to access specific methods outside of it's class. After it was finished it was cool and fun to experiment with the new functionality that I added.
+6. If this project had 1000 SeaCreature objects, I would work on creating a functionality for multiple SeaCreatures to live in one row in the Aquarium. This would make it so the aquarium looked full and real rather than
+having 1000 rows of SeaCreatures that cannot interact or play with eachother. 
