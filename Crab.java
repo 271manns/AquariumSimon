@@ -2,7 +2,7 @@ public class Crab extends SeaCreature {
 
     private String symbol;
 
-    public Crab(String name, int position, int speed, int direction, String symbol) {
+    public Crab(String name, int position, int speed, int direction, String symbol) throws InvalidCreatureException {
         super(name, position, speed, direction);
         this.symbol = symbol;
         hunger = 10; 
