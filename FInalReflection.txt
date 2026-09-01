@@ -1,0 +1,19 @@
+Final Challenge Response: The reason that it is best for SeaCreature to throw the Exception for the Aquarium app to recieve is because many times,
+the people creating the code on the back end and managing exceptions do not know how the recieving party wants a specific exception to be handled. By throwing it to the AquariumApp instead of instantly printing an
+error, the creators of the Aquarium App can decide how that Exception should be handled depending on their own interests.
+
+1. One exceptional situation that my program can now handle is the addition of a SeaCreature object whose name is null. In the main AquariumApp.java, the creatures are created in a try block, 
+meaning that if any Exception is encountered where the name of the creature is null, the catch block will recieve the Exception and print out the corresponding message.
+
+2. The throw statement is the signal that an Exception has been found. This statement will stop the code at runtime and print out the corresponding InvalidCreatureException and message.
+
+3. While the throw declaration is created when a Exception is found, the throws keyword signals that a method might throw an Exception. This alerts the code that their could be an InvalidCreatureException and it needs to be handled. 
+
+4. The try block is the code that you are trying to run, but it might cause an exception. It attempts to run the code in the try block, but if
+an exception is found, the catch block is there. The catch block says what to do if the exception occurs. In my program, it throws the Exception and prints out a message for the user. 
+
+5. As I stated in the Final Challenge Question, the SeaCreature class shouldn't worry about the way that the Exception will be handled in the main method. Instead, it should focus on throwing the Exception 
+for the main class to recieve rather than printing a specific error. This leaves each group to specialize in their own code without having to care about how their code will be applied. 
+
+6. One improvement I made independent from Exceptions was giving the extension SeaCreature SubClasses their own fixed symbol. This makes it so that the SeaCreatures can be easily identifiable
+within the Aquarium, and they each stay consistent with their own subclass. 
