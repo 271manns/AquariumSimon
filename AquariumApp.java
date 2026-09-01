@@ -2,18 +2,31 @@ import java.util.Scanner;
 
 public class AquariumApp {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidCreatureException {
 
         SeaCreature[] tank = new SeaCreature[8];
 
-        // Two starter creatures.
-        tank[0] = new Fish("Nemo", 4, 3, 1, "><>");
-        tank[1] = new Fish("Dory", 30, 2, -1, "><((('>");
-        tank[2] = new Shark("Jaws", 0, 3, 1, "<°))^)><");  
-        tank[3] = new Crab("Crabby",10, 1, 1, ">----<");
+        
 
+        try
+        {
+            tank[0] = new Fish("Nemo", 4, 3, 1, "><>");
+            tank[1] = new Fish("Dory", 30, 2, -1, "><((('>");
+            tank[2] = new Shark("Jaws", 10, 3, 1);  
+            tank[3] = new Crab("Crabby",10, 1, 1);
+            //Testing 3 new SeaCreature variables that create Exceptions
+            //tank[4] = new Fish("Dory", -50, 2, -1, "><((('>");
+            //tank[5] = new Crab(null,10, 1, 1,);
+            //tank[6] = new Crab(null,-10, 1, 1,);
+        }   
+        catch(InvalidCreatureException e)
+        {
+            throw new InvalidCreatureException("Enter in a valid SeaCreature with correct Position and Name");
+        }
+        
+        
         // =====================================================
-        // STUDENT TODO
+        
         // =====================================================
         // 1. Create at least TWO additional SeaCreature subclasses.
         // 2. Add objects from those subclasses to this array.

@@ -1,4 +1,4 @@
-public abstract class SeaCreature throws InvalidCreatureException {
+public abstract class SeaCreature {
 
     protected String name;
     protected int position;
@@ -6,7 +6,7 @@ public abstract class SeaCreature throws InvalidCreatureException {
     protected int direction;
     protected int hunger;
 
-    public SeaCreature(String name, int position, int speed, int direction) {
+    public SeaCreature(String name, int position, int speed, int direction) throws InvalidCreatureException {
         if(name==null)
         {
             throw new InvalidCreatureException("You must enter a name for your SeaCreature");
