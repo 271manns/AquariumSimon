@@ -1,13 +1,14 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Aquarium {
 
     public static final int TANK_WIDTH = 48;
 
-    private SeaCreature[] creatures;
+    private ArrayList<SeaCreature> creatures;
     private int turnNumber;
 
-    public Aquarium(SeaCreature[] creatures) {
+    public Aquarium(ArrayList<SeaCreature> creatures) {
         this.creatures = creatures;
         this.turnNumber = 0;
     }
@@ -73,7 +74,7 @@ public class Aquarium {
         }
     }
 
-    public SeaCreature[] getCreatures() {
+    public ArrayList<SeaCreature> getCreatures() {
         return creatures;
     }
 

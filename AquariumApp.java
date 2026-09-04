@@ -1,28 +1,64 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
-
 public class AquariumApp {
 
-    public static void main(String[] args) throws InvalidCreatureException {
+    public static void main(String[] args) throws InvalidCreatureException, FileNotFoundException {
 
-        SeaCreature[] tank = new SeaCreature[8];
-
-        
-
+        ArrayList<SeaCreature> tank = new ArrayList<SeaCreature>();
+        try{
+            File file = new File("Input.txt");
+            Scanner sc = new Scanner(file);
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("File not found");
+            return;
+        }
         try
         {
-            tank[0] = new Fish("Nemo", 4, 3, 1, "><>");
-            tank[1] = new Fish("Dory", 30, 2, -1, "><((('>");
-            tank[2] = new Shark("Jaws", 10, 3, 1);  
-            tank[3] = new Crab("Crabby",10, 1, 1);
-            //Testing 3 new SeaCreature variables that create Exceptions
-            //tank[4] = new Fish("Dory", -50, 2, -1, "><((('>");
-            //tank[5] = new Crab(null,10, 1, 1,);
-            //tank[6] = new Crab(null,-10, 1, 1,);
-        }   
-        catch(InvalidCreatureException e)
-        {
-            throw new InvalidCreatureException("Enter in a valid SeaCreature with correct Position and Name");
+            Scanner sc = new Scanner(new File("Input.txt"));
+
+            while (sc.hasNextLine())
+            {
+                String line = sc.nextLine();
+                if (line.trim().isEmpty()) {
+                    continue;
+                }
+
+                Scanner lineScanner = new Scanner(line);
+                lineScanner.useDelimiter(",");
+
+                String type = lineScanner.next();
+                String name = lineScanner.next();
+                if ("null".equalsIgnoreCase(name)) {
+                    name = null;
+                }
+                int position = lineScanner.nextInt();
+                int speed = lineScanner.nextInt();
+                int direction = lineScanner.nextInt();
+                String pattern = lineScanner.next();
+
+                if (type.equals("Fish")) {
+                    tank.add(new Fish(name, position, speed, direction, pattern));
+                } else if (type.equals("Shark")) {
+                    tank.add(new Shark(name, position, speed, direction, pattern));
+                } else if (type.equals("Crab")) {
+                    tank.add(new Crab(name, position, speed, direction, pattern));
+                } else {
+                    throw new InvalidCreatureException("Unknown creature type: " + type);
+                }
+
+                lineScanner.close();
+            }
+
+    
+        }catch(InvalidCreatureException e) {
+            System.out.println("Invalid creature in input file: " + e.getMessage());
+            return;
         }
+       
         
         
         // =====================================================
@@ -36,7 +72,7 @@ public class AquariumApp {
         // tank[2] = new Shark(...);
         // tank[3] = new Turtle(...);
 
-        Aquarium aquarium = new Aquarium(tank);
+        Aquarium aquarium1 = new Aquarium(tank);
         Scanner input = new Scanner(System.in);
 
         boolean running = true;
@@ -52,16 +88,16 @@ public class AquariumApp {
 
             switch (choice) {
                 case "1":
-                    aquarium.display();
+                    aquarium1.display();
                     break;
 
                 case "2":
-                    aquarium.advanceTurn();
-                    aquarium.display();
+                    aquarium1.advanceTurn();
+                    aquarium1.display();
                     break;
 
                 case "3":
-                    aquarium.listCreatureDetails();
+                    aquarium1.listCreatureDetails();
                     break;
 
                 case "4":
@@ -69,16 +105,15 @@ public class AquariumApp {
                     System.out.println("Aquarium closed. Goodbye!");
                     break;
                 case "5":
-                    aquarium.feed();
+                    aquarium1.feed();
                     break;
 
 
                 default:
-                    System.out.println("Please choose 1, 2, 3, or 4.");
+                    System.out.println("Please choose 1, 2, 3, 4, or 5.");
             }
         }
 
-        input.close();
     }
 
     private static void printMenu() {
